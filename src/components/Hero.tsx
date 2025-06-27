@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Hero(){
     return(
-        <main className="min-h-screen py-36 relative myHero">
+        <main id="home" className="min-h-screen py-36 relative myHero">
             <div className="container-xl relative z-10 h-screen">
                 <h2 className="w-fit animateText text-3xl sm:text-5xl xl:text-7xl font-bold bg-gradient-to-r from-amber-400 via-purple-500 to-pink-400 bg-clip-text text-transparent">Olá, eu sou Michel!</h2>
                 <h2 className="text-3xl xl:text-5xl font-bold italic mt-2">Desenvolvedor FullStack</h2>

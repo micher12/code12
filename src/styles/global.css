@@ -68,6 +68,14 @@ body{
     transform: scale(1.1) translateY(-5px);
 }
 
+.fadeIn{
+    animation: fadeIn 1.4s ease forwards;
+}
+
+.fadeIn-sm{
+    animation: fadeIn .6s ease forwards;
+}
+
 
 @media screen and (max-width: 1080px){
     .myHero{
@@ -94,6 +102,18 @@ body{
     .myHero{
         background-position: 25% 20%;
         background-size: 280%;
+    }
+}
+
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+        filter: blur(8px);
+    }
+    100%{
+        filter: blur(0px);
+        opacity: 1;
     }
 }
 
