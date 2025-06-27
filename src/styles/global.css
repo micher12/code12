@@ -56,9 +56,18 @@ body{
     animation: transitionText 5s infinite;
 }
 
-.scale:hover{
-    transform: scale(1.03);
+.myTransitionPop{
+    transition: all .26s cubic-bezier(0.68,-0.6,0.32,1.6);
 }
+
+.scale:hover{
+    transform: scale(1.02);
+}
+
+.scale-up:hover{
+    transform: scale(1.1) translateY(-5px);
+}
+
 
 @media screen and (max-width: 1080px){
     .myHero{
