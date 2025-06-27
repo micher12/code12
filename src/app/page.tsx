@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Sobre from "@/components/Sobre";
 
 export default function Home() {
 
@@ -7,19 +8,7 @@ export default function Home() {
         <>
             <Header />
             <Hero />
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            <Sobre />
         </>
     );
 }
