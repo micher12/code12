@@ -38,11 +38,11 @@ export function UseProvider({children}: {children: ReactNode}){
         const element = document.getElementById(id);
 
         if(!element) return setMobileMenu(false);
-
-        const altura = element.offsetHeight;
+        
+        const altura = element.getBoundingClientRect().top + scrollY;
 
         window.scrollTo({
-            top: (altura + 288),
+            top: altura,
             behavior: "smooth"
         })
 
