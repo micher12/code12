@@ -72,6 +72,10 @@ body{
     animation: fadeIn 1.4s ease forwards;
 }
 
+.fadeInUp{
+    animation: fadeInUp 1.4s ease forwards;
+}
+
 .fadeIn-sm{
     animation: fadeIn .6s ease forwards;
 }
@@ -122,9 +126,27 @@ body{
         opacity: 0;
         filter: blur(8px);
     }
-    100%{
+    70%{
         filter: blur(0px);
+    }
+    100%{
         opacity: 1;
+    }
+}
+
+@keyframes fadeInUp{
+    0%{
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(-12px);
+    }
+    70%{
+        filter: blur(0px);
+    }
+    100%{
+        
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
