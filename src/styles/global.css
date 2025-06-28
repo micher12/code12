@@ -76,6 +76,17 @@ body{
     animation: fadeIn .6s ease forwards;
 }
 
+#sobre::after{
+    content: '';
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0;
+    height: 200px;
+    background: linear-gradient(0deg, transparent, #0f172b);
+}
+
 
 @media screen and (max-width: 1080px){
     .myHero{
