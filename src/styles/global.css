@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
 
 body{
     @apply text-slate-200 bg-slate-950 relative;
@@ -91,6 +95,18 @@ body{
     background: linear-gradient(0deg, transparent, #0f172b);
 }
 
+#projetos::before{
+    position: absolute;
+    content: '';
+    top: -200px;
+    left: 0;
+    height: 200px;
+    width: 100%;
+    background-image:
+        linear-gradient(to bottom, #0f182d 0%, transparent 100%),
+        linear-gradient(to right, #241547, #1a2144, #0f2742);
+    background-blend-mode: destination-in, normal;
+}
 
 @media screen and (max-width: 1080px){
     .myHero{
@@ -120,7 +136,6 @@ body{
     }
 }
 
-
 @keyframes fadeIn{
     0%{
         opacity: 0;
@@ -144,12 +159,11 @@ body{
         filter: blur(0px);
     }
     100%{
-        
+
         opacity: 1;
         transform: translateY(0);
     }
 }
-
 
 @keyframes transitionText{
     0%{
@@ -164,3 +178,4 @@ body{
         background-position: right center;
     }
 }
+

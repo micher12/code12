@@ -1,6 +1,7 @@
 import BackToTop from "@/components/BackToTop";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Projetos from "@/components/Projetos";
 import Sobre from "@/components/Sobre";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
             <Header />
             <Hero />
             <Sobre />
+            <Projetos />
             <BackToTop />
         </>
     );

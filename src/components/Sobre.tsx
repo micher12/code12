@@ -22,17 +22,17 @@ const tecnologias2 = [
 export default function Sobre(){
 
     return(
-        <div id="sobre" className="relative min-h-screen py-36 bg-slate-900 bg-center bg-cover" style={{backgroundImage: "url('/gradient.png')"}}>
+        <div id="sobre" className="relative py-36 pb-50 bg-slate-900 bg-center bg-cover" style={{backgroundImage: "url('/gradient.png')"}}>
             <div className="container-xl relative z-10">
                 <h2 className="text-3xl sm:text-5xl text-white font-bold">Sobre</h2>
                 <div className="mt-10 flex flex-col items-center xl:items-stretch xl:flex-row w-full gap-8">
-                    <div className="flex flex-col items-center w-full md:w-[50%] xl:w-[45%] rounded-2xl p-3 bg-slate-800 bg-[radial-gradient(ellipse_at_top,_rgba(0,255,189,0.2)_0%,_transparent_60%)]">
+                    <div className="flex flex-col items-center w-full md:w-[50%] xl:w-[45%] rounded-2xl p-3 bg-slate-800 bg-[radial-gradient(ellipse_at_top,_rgba(0,255,189,0.2)_0%,_transparent_60%)] shadow-slate-700/30 shadow-xl border border-slate-200/5">
                         <div className="w-48 h-48 rounded-full bg-cover bg-center" style={{backgroundImage: "url('perfil.jpg')"}} />
                         <p className="text-sm font-bold mt-4">Michel Alves da Silva</p>
                         <p className="text-sm font-semibold italic ">Desenvolvedor FullStack</p>
                         <p className="w-full text-md font-semibold montserrat mt-4 p-2">Sou Desenvolvedor FullStack e desenvolvo WebApps completos, responsivo e back-end totalmente integrado. Atualmente, atuo como freelancer no desenvolvimento de sites completos.</p>
                     </div>
-                    <div className="w-full bg-slate-800 rounded-2xl p-5 flex flex-col lg:flex-row justify-between gap-5 lg:gap-8">
+                    <div className="w-full bg-slate-800 rounded-2xl p-5 flex flex-col lg:flex-row justify-between gap-5 lg:gap-8 shadow-slate-700/30 border border-slate-200/5 shadow-xl">
                         <div className="w-full flex flex-col h-full gap-5 justify-evenly">
                             {tecnologias.map((item,index)=>(
                                 <div key={index} className="w-full flex items-center gap-4">

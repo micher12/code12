@@ -35,7 +35,7 @@ export default function BackToTop(){
 
     if(ativado)
         return(
-            <div onClick={backTop} className={`fixed z-10 bottom-4 right-4 cursor-pointer bg-blue-500/60 rounded-full shadow-sm fadeInUp`}>
+            <div onClick={backTop} className={`fixed z-10 bottom-5 right-5 cursor-pointer p-0.5 bg-blue-500/60 rounded-full shadow-sm fadeInUp`}>
                 <ChevronUp />
             </div>
         )
