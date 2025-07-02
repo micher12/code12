@@ -1,4 +1,5 @@
 import BackToTop from "@/components/BackToTop";
+import Contato from "@/components/Contato";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projetos from "@/components/Projetos";
@@ -12,6 +13,7 @@ export default function Home() {
             <Hero />
             <Sobre />
             <Projetos />
+            <Contato />
             <BackToTop />
         </>
     );

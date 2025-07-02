@@ -36,11 +36,11 @@ export default function Header(){
             return setMobile(false);
         }
 
-        window.addEventListener("scroll", scrolled)
-        window.addEventListener("resize", resized)
-
         resized()
         scrolled()
+
+        window.addEventListener("scroll", scrolled)
+        window.addEventListener("resize", resized)
 
         return ()=>{
             return window.removeEventListener("scroll",scrolled), window.removeEventListener("resize", resized);
@@ -66,8 +66,8 @@ export default function Header(){
             : "w-[90%] sm:w-[75%]"} 
 
             ${!mobile 
-            ? "justify-between gap-8" 
-            : `justify-center flex-col gap-3
+            ? "justify-between" 
+            : `justify-center flex-col gap-4
                 ${!mobileMenu  
                     ? " w-[150px] " 
                     : "w-[80%]!"}`}`}  
@@ -81,15 +81,16 @@ export default function Header(){
                         <Link onClick={navegation} href={"/projetos"} className={`${path === "/projetos" ? "border-b-2 border-white text-white" : "hover:text-slate-200"}`} >Projetos</Link>
                     </div>
                     <div>
-                        <Link href={"/"} className="bg-white myTransition hover:bg-slate-800 hover:text-white rounded-full px-4 py-1 font-semibold cursor-pointer text-slate-800">Contato</Link>
+                        <Link onClick={navegation} href={"/contato"} className="bg-white myTransition hover:bg-slate-800 hover:text-white rounded-full px-4 py-1 font-semibold cursor-pointer text-slate-800">Contato</Link>
                     </div>
                 </div>
             )}
             {mobileMenu && (
-                <div className="flex flex-col gap-3 items-center pb-2.5 font-bold fadeIn-sm">
+                <div className="flex flex-col gap-4 items-center pb-2.5 font-bold fadeIn-sm">
                     <Link onClick={navegation} href={"/"} className={`text-xl ${path === "/" ? "border-b-2 border-white text-white" : "hover:text-slate-200"}`} >Início</Link>
                     <Link onClick={navegation} href={"/sobre"} className={`text-xl ${path === "/sobre" ? "border-b-2 border-white text-white" : "hover:text-slate-200"}`} >Sobre</Link>
                     <Link onClick={navegation} href={"/projetos"} className={`text-xl ${path === "/projetos" ? "border-b-2 border-white text-white" : "hover:text-slate-200"}`} >Projetos</Link>
+                    <Link onClick={navegation} href={"/contato"} className="bg-white myTransition hover:bg-slate-800 hover:text-white rounded-full px-4 py-1 font-semibold cursor-pointer text-slate-800">Contato</Link>
                 </div>
             )}
         </header>
