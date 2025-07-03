@@ -58,7 +58,7 @@ export default function Header(){
 
     return(
         <>
-        <header className={`left-[50%] translate-x-[-50%] mt-4 px-2 py-1 flex items-center z-50 backdrop-blur rounded-2xl bg-blue-200/10 fixed border border-slate-200/10 myTransition-ease
+        <header className={`left-[50%] translate-x-[-50%] mt-4 px-2 py-1 flex items-center z-[41] backdrop-blur rounded-2xl bg-blue-200/10 fixed border border-slate-200/10 myTransition-ease
             ${scrolled 
             ? `${mobile 
                 ? `${!mobileMenu ? "w-[220px]" : "w-[90%]!"}` 

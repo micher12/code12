@@ -1,6 +1,7 @@
 "use client";
 
 import Alert from "@/components/ui/Alert";
+import Loader from "@/components/ui/Loader";
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react"
 
 
@@ -14,6 +15,7 @@ export interface ContextProvider{
     message: string,
     setMessage: Dispatch<SetStateAction<string>>,
     setAlert: (type: "sucesso" | "erro" | null, message: string) => void
+    setLoading: Dispatch<SetStateAction<boolean>>,
 }
 
 const ContextProvider = createContext<ContextProvider | null>(null);
@@ -24,6 +26,7 @@ export function UseProvider({children}: {children: ReactNode}){
     const [path, setPath] = useState("/");
     const [typeAlert, setTypeAlert] = useState<"sucesso" | "erro" | null >(null);
     const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
 
     function navegation(e: React.MouseEvent<HTMLAnchorElement>){
         e.preventDefault();
@@ -75,12 +78,14 @@ export function UseProvider({children}: {children: ReactNode}){
         setMessage,
         typeAlert,
         setAlert,
+        setLoading,
     }
 
     return(
         <ContextProvider value={values}>
             {children}
             <Alert type={typeAlert} message={message} />
+            <Loader loading={loading} />
         </ContextProvider>
     )
 

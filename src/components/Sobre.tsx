@@ -30,7 +30,7 @@ export default function Sobre(){
                         <div className="w-48 h-48 rounded-full bg-cover bg-center" style={{backgroundImage: "url('perfil.jpg')"}} />
                         <p className="text-sm font-bold mt-4">Michel Alves da Silva</p>
                         <p className="text-sm font-semibold italic ">Desenvolvedor FullStack</p>
-                        <p className="w-full text-md font-semibold montserrat mt-4 p-2">Sou Desenvolvedor FullStack e desenvolvo WebApps completos, responsivo e back-end totalmente integrado. Atualmente, atuo como freelancer no desenvolvimento de sites completos.</p>
+                        <p className="w-full text-md font-semibold montserrat mt-4 p-2">Sou desenvolvedor FullStack especializado em WebApps completos, responsivo e back-end totalmente integrado. Atualmente, atuo como freelancer no desenvolvimento de sites completos.</p>
                     </div>
                     <div className="w-full bg-slate-800 rounded-2xl p-5 flex flex-col lg:flex-row justify-between gap-5 lg:gap-8 shadow-slate-700/30 border border-slate-200/5 shadow-xl">
                         <div className="w-full flex flex-col h-full gap-5 justify-evenly">

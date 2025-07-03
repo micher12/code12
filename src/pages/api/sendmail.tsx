@@ -1,8 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer"
 import jwt from "jsonwebtoken";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 
-const requestStore: { [ip: string]: number } = {};
+const requestStore: Record<string, number> = {};
 
 export default async function sendmail(req: NextApiRequest, res: NextApiResponse){
 
@@ -14,6 +16,18 @@ export default async function sendmail(req: NextApiRequest, res: NextApiResponse
 
     if(!req.body || !req.body.nome || !req.body.email || !req.body.message || !req.body.telefone)
         return res.status(404).json({erro: "Requisição errada."})
+
+    function verificarAcesso(ip: string): boolean {
+        const agora = Date.now();
+        const ultimoAcesso = requestStore[ip];
+
+        if (ultimoAcesso && (agora - ultimoAcesso < 5 * 60 * 1000)) {
+            return false; 
+        }
+
+        requestStore[ip] = agora;
+        return true; 
+    }
 
     try {
 
@@ -27,18 +41,25 @@ export default async function sendmail(req: NextApiRequest, res: NextApiResponse
         if(decoded.exp as number > Date.now())
             return res.status(401).json({erro: "Acesso negado!"})
 
-        const ip = req.headers['x-forwarded-for'] as string || 'anonymous';
+        const ip = req.headers['x-forwarded-for'] as string || req.socket.remoteAddress || 'anonymous';
+    
+        if(!verificarAcesso(ip))
+            return res.status(429).json({ erro: "Tente novamente em breve." });
 
-        if(requestStore[ip]){
-            const date = requestStore[ip];
-            const result = (Date.now() - date) < 5 * 60 * 1000 // 5 minutos
+        const ratelimit = new Ratelimit({
+            redis: Redis.fromEnv(),
+            limiter: Ratelimit.slidingWindow(1, "5 m"),
+            analytics: true,
+            prefix: "@upstash/ratelimit",
+        });
 
-            if(result)
-                return res.status(429).json({erro: "Aguarde um momento!"})
+        const { success } = await ratelimit.limit(ip);
+
+        if (!success) {
+            return res.status(429).json({ erro: "Tente novamente em breve." });
         }
 
-        requestStore[ip] = Date.now();
-
+      
         const nome = req.body.nome;
         const email = req.body.email;
         const message = req.body.message;
@@ -47,7 +68,7 @@ export default async function sendmail(req: NextApiRequest, res: NextApiResponse
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: "contatocode12@gmail.com",
+                user: process.env.NEXT_PUBLIC_EMAIL,
                 pass: process.env.GMAIL_PASSWORD,
             },
         });
@@ -105,8 +126,8 @@ export default async function sendmail(req: NextApiRequest, res: NextApiResponse
         `
 
         await transporter.sendMail({
-            from: '"Code12" <contatocode12@gmail.com>',
-            to: "contatocode12@gmail.com",
+            from: `"Code12" <${process.env.NEXT_PUBLIC_EMAIL}>`,
+            to: process.env.NEXT_PUBLIC_EMAIL,
             subject: "Contato recebido ✅",
             text: "Novo contato recebido",
             html: body, 
@@ -124,11 +145,10 @@ export default async function sendmail(req: NextApiRequest, res: NextApiResponse
 }
 
 setInterval(() => {
-    console.log("CHAMEI")
-    const now = Date.now();
-    for (const ip in requestStore) {
-        if (now - requestStore[ip] > (5 * 60 * 1000)) {
-            delete requestStore[ip];
-        }
+  const now = Date.now();
+  for (const ip in requestStore) {
+    if (now - requestStore[ip] > 5 * 60 * 1000) {
+      delete requestStore[ip]; // remove IPs inativos há mais de 5min
     }
-}, 60 * 60 * 1000); // Limpa a cada hora
+  }
+}, 10 * 60 * 1000); // 10 min

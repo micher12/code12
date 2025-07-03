@@ -21,7 +21,7 @@ export default function Hero(){
                 <div className="flex gap-3 mt-10">
                     <Link target="_blank" href={"https://www.github.com/micher12"} className="hover:bg-zinc-500 p-1.5 rounded-full myTransitionPop  scale-up" ><Github className="w-6 h-6" /></Link>
                     <Link target="_blank" href={"https://www.linkedin.com/in/michel-alves-da-silva-0a1834212/"} className="hover:bg-zinc-500 p-1.5 rounded-full myTransitionPop  scale-up" ><Linkedin className="w-6 h-6" /></Link>
-                    <Link target="_blank" href={"mailto:michelasm3@gmail.com?subject=Contato&body=Olá vim pelo website, "} className="hover:bg-zinc-500 p-1.5 rounded-full myTransitionPop scale-up" ><Mail className="w-6 h-6" /></Link>
+                    <Link target="_blank" href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}?subject=Contato&body=Olá vim pelo website!`} className="hover:bg-zinc-500 p-1.5 rounded-full myTransitionPop scale-up" ><Mail className="w-6 h-6" /></Link>
                 </div>
             </div>
         </main>
