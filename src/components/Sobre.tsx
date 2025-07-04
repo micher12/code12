@@ -22,7 +22,7 @@ const tecnologias2 = [
 export default function Sobre(){
 
     return(
-        <div id="sobre" className="relative py-36 pb-50 bg-slate-900 bg-center bg-cover" style={{backgroundImage: "url('/gradient.png')"}}>
+        <div id="sobre" className="relative py-36 pb-50 min-h-screen bg-slate-900 bg-center bg-cover" style={{backgroundImage: "url('/gradient.png')"}}>
             <div className="container-xl relative z-10">
                 <h2 className="text-3xl sm:text-5xl text-white font-bold">Sobre</h2>
                 <div className="mt-10 flex flex-col items-center xl:items-stretch xl:flex-row w-full gap-8">

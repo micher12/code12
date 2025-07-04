@@ -116,6 +116,10 @@ body{
     background-blend-mode: destination-in, normal;
 }
 
+.line{
+    @apply w-full h-0.5 bg-slate-200/15 rounded-full
+}
+
 @media screen and (max-width: 1080px){
     .myHero{
         background-position: 150px 50%;
