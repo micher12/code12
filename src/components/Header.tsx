@@ -10,17 +10,29 @@ export default function Header(){
 
     const [scrolled, setScrolled] = useState(false);
     const [mobile, setMobile] = useState(false);
-    const { path, mobileMenu, navegation, setMobileMenu } = GetContext() as ContextProvider ;
+    const { path, setPath, mobileMenu, navegation, setMobileMenu, ignoreScroll } = GetContext() as ContextProvider ;
 
     useEffect(()=>{
 
-        function scrolled(){
+        function Scrolled(){
             const height = window.scrollY;
+            const alturaSobre = (document.getElementById("sobre"))?.getBoundingClientRect().top ?? 0 - window.scrollY;
+            const alturaProjetos = (document.getElementById("projetos"))?.getBoundingClientRect().top ?? 0 - window.screenY;
 
-            if(height > 200)
+            if(height > 200 && !scrolled)
                 return setScrolled(true)
+            if(height < 200 && scrolled)
+                return setScrolled(false);
 
-            setScrolled(false);
+            if(!ignoreScroll){
+                if(alturaSobre && alturaSobre > 0)
+                    return setPath("/")
+                if(alturaProjetos && alturaProjetos > 0)
+                    return setPath("/sobre")
+                else
+                    return setPath("/projetos")
+            }
+
         }
 
         function resized(){
@@ -37,17 +49,17 @@ export default function Header(){
         }
 
         resized()
-        scrolled()
+        Scrolled()
 
-        window.addEventListener("scroll", scrolled)
+        window.addEventListener("scroll", Scrolled)
         window.addEventListener("resize", resized)
 
         return ()=>{
-            return window.removeEventListener("scroll",scrolled), window.removeEventListener("resize", resized);
+            return window.removeEventListener("scroll",Scrolled), window.removeEventListener("resize", resized);
             
         }
 
-    },[mobileMenu])
+    },[mobileMenu, scrolled, ignoreScroll])
 
     function openMobileMenu(){
         if(!mobile) return;

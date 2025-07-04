@@ -16,6 +16,8 @@ export interface ContextProvider{
     setMessage: Dispatch<SetStateAction<string>>,
     setAlert: (type: "sucesso" | "erro" | null, message: string) => void
     setLoading: Dispatch<SetStateAction<boolean>>,
+    setPath: Dispatch<SetStateAction<string>>,
+    ignoreScroll: boolean,
 }
 
 const ContextProvider = createContext<ContextProvider | null>(null);
@@ -24,6 +26,7 @@ export function UseProvider({children}: {children: ReactNode}){
 
     const [mobileMenu, setMobileMenu] = useState(false);
     const [path, setPath] = useState("/");
+    const [ignoreScroll, setIgnoreScroll] = useState(false);
     const [typeAlert, setTypeAlert] = useState<"sucesso" | "erro" | null >(null);
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
@@ -37,12 +40,12 @@ export function UseProvider({children}: {children: ReactNode}){
         const id = val.split(thisPath)[1];
 
         if(id.trim() === ""){
+            setPath("/")
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
             setMobileMenu(false);
-            setPath("/");
             return
         }
 
@@ -58,6 +61,11 @@ export function UseProvider({children}: {children: ReactNode}){
         })
 
         setPath("/"+id);
+        setIgnoreScroll(true);
+
+        setTimeout(()=>{
+            setIgnoreScroll(false);
+        },1000);
         
         if(mobileMenu)
             setMobileMenu(false);
@@ -79,6 +87,8 @@ export function UseProvider({children}: {children: ReactNode}){
         typeAlert,
         setAlert,
         setLoading,
+        setPath,
+        ignoreScroll,
     }
 
     return(
