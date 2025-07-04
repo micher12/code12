@@ -21,7 +21,7 @@ const itemsList: listItems[][] = [
     [
         {title: "PWA (Progressive Web App)", icon: LoaderPinwheel, content: "É realizado toda a otimização necessária para o Website funcionar perfeitamente como App. Utilizando PWA é possível deixar \"instalado\" e acessar em qualquer lugar a qualquer hora desde que se tenha internet."},
         {title: "Velocidade", icon: Gauge, content: "Para manter a velocidade e desempenho, cada requisição é pensada e otimizada utilizando estrutura de dados para retornar o menor tempo possível."},
-        {title: "Segurança", icon: Lock, content: "Para manter a segurança em sessões privadas, foi utilizado o JWT para crias hash das sessões e foram armazenados em Cookies HttpOnly e Strict, antes  de realizar qualquer ação é realizado toda a verificação do hash pelo back-end para validar essa sessão. A parte de gerenciamente de autenticação são realizadas pelo Firebase Admin Auth"},
+        {title: "Segurança", icon: Lock, content: "Para manter a segurança em sessões privadas, foi utilizado o JWT para crias hash das sessões e foram armazenados em Cookies HttpOnly e Strict, antes de realizar qualquer ação é realizado toda a verificação do hash pelo back-end para validar essa sessão. A parte de gerenciamento de autenticação são realizadas pelo Firebase Admin Auth"},
         {title: "Tecnologias", icon: ChevronsLeftRightEllipsis, content: "Vários projetos foram desenvolvidos, dentre eles já utilizei as seguintes tecnologias: NextJS, ReactJS, TypeScript, JavaScript, PHP, MySQL, PostgreSQL, DynamoDB, D1, Firebase, TailWindCSS, BootStrap"},
     ],
     [
@@ -30,7 +30,7 @@ const itemsList: listItems[][] = [
         {title: "Configurações", icon: Cog, content: "Foi desenvolvido com Python, utilizando como rede neural o CNN (Convolutional Neural Network) + BERTimbau da Neuralmind para realizar PLN (Processamento de Linguagem Natural)."},
     ],
     [
-        {title: "Problema / Solução", icon: CircleQuestionMark, content: "Ordenar de fato as imagens não é a solução direta, isso porque tentar colocar 100 mil imagens na memória para conseguir ordernar não é viável. A solução é ordenar algum metadado relacionado e recuperar a imagem correspondente através do ID."},
+        {title: "Problema / Solução", icon: CircleQuestionMark, content: "Ordenar de fato as imagens não é a solução direta, isso porque tentar colocar 100 mil imagens na memória para conseguir ordenar não é viável. A solução é ordenar algum metadado relacionado e recuperar a imagem correspondente através do ID."},
         {title: "Desempenho", icon: ChartLine, content: "Com o total de 103.117 mil dados cada um com 2 imagens, foi possível ordenar através de um código gerado aleatoriamente na hora do cadastro, com um tempo total de 32ms pelo MergeSort."},
         {title: "Tecnologias", icon: ChevronsLeftRightEllipsis, content: "Projeto desenvolvido com Java e MySQL."},
     ],
