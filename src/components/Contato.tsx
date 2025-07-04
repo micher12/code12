@@ -3,7 +3,6 @@
 import getToken from "@/lib/getToken";
 import { InputMask } from 'primereact/inputmask';
 import { ContextProvider, GetContext } from "@/lib/ContextProvider";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -13,11 +12,6 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 export default function Contato(){
 
     const { setAlert, setLoading } = GetContext() as ContextProvider;
-    const [valor, setValor] = useState(0);
-
-    useEffect(()=>{
-        console.log(valor*100)
-    },[valor])
 
     async function sendMail(e: React.FormEvent<HTMLFormElement>){
         e.preventDefault();

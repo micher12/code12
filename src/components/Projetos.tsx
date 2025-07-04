@@ -1,11 +1,8 @@
 "use client";
 
 import { ChartLine, ChevronsLeftRightEllipsis, CircleQuestionMark, Cog, File, Gauge, LayoutDashboard, LoaderPinwheel, Lock, LucideProps, MonitorSmartphone, Palette, Pencil, ReceiptText, ScanQrCode, SearchCheck, UserRoundPlus } from "lucide-react";
-import { ForwardRefExoticComponent, RefAttributes, useEffect, useRef } from "react";
-import List from "./List";
-import Image from "next/image";
-import Link from "next/link";
-import { inView, useInView } from "framer-motion";
+import { ForwardRefExoticComponent, RefAttributes } from "react";
+import SingleItem from "./ui/SingleItem";
 
 interface listItems {
     icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>,
@@ -83,10 +80,7 @@ const projetos = [
     },
 ]
 
-
-
 export default function Projetos(){
-
 
     return(
         <div id="projetos" className="min-h-screen relative py-36 bg-gradient-to-tl from-amber-500/20 via-cyan-500/20 to-purple-500/20">
@@ -94,27 +88,9 @@ export default function Projetos(){
                 <h2 className="text-3xl sm:text-5xl font-bold text-white">Projetos</h2>
 
                 <div className="flex flex-col mt-15 gap-20">
-                    {projetos.map((item,index)=>{
-
-                        const ref = useRef(null);
-                        const isInView = useInView(ref, {once: true, amount: 0.4})
-
-                        return(
-                            <div ref={ref} key={index} className={`opacity-0 ${isInView && "fadeInQuickUp"} `} >
-                                <h2 className="font-bold text-white text-xl sm:text-3xl">{item.titulo}</h2>
-                                <p className="mt-5 max-w-[600px]">{item.about}</p>
-                                <div className={`min-h-[400px] flex flex-col ${index%2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} lg:justify-between items-center gap-2 lg:gap-20`}>
-                                    <div className="w-full">
-                                        <Image src={item.image} width={500} height={100} alt="Projeto" quality={100} priority={true} className="mt-5 lg:w-full mx-auto" />
-                                    </div>
-                                    <div className="flex flex-col w-full">
-                                        <List items={item.list} />
-                                        {index > 0 && <Link target="_blank" href={item.link} className="w-fit bg-blue-500 font-bold px-12 py-1.5 text-lg rounded mt-5 cursor-pointer">VER PROJETO {index === 1 && "REAL"}</Link>}
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                    })}
+                    {projetos.map((item,index)=>(
+                        <SingleItem key={index} item={item} index={index} />
+                    ))}
                 </div>
 
             </div>

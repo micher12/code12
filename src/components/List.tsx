@@ -1,4 +1,4 @@
-import { AtSignIcon, CommandIcon, EclipseIcon, LucideProps, ZapIcon } from "lucide-react"
+import { LucideProps } from "lucide-react"
 
 import {
   Accordion,
