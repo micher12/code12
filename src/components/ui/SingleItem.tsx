@@ -1,8 +1,9 @@
 import { useInView } from "framer-motion";
-import { Link, LucideProps } from "lucide-react";
+import { LucideProps } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes, useRef } from "react";
 import Image from "next/image";
 import List from "../List";
+import Link from "next/link";
 
 interface listItems {
     icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>,
