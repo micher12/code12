@@ -34,10 +34,7 @@ export function UseProvider({children}: {children: ReactNode}){
     function navegation(e: React.MouseEvent<HTMLAnchorElement>){
         e.preventDefault();
 
-        const val = (e.target as HTMLAnchorElement).href;
-
-        const thisPath = process.env.NEXT_PUBLIC_DOMAIN as string;
-        const id = val.split(thisPath)[1];
+        const id = (e.target as HTMLAnchorElement).pathname.split("/")[1];
 
         if(id.trim() === ""){
             setPath("/")
