@@ -16,7 +16,7 @@ export default function Footer(){
             <div className="container flex flex-col ">
                 <div className="flex flex-col md:flex-row w-full items-start justify-between gap-8 md:gap-0">
                     <div className="flex-auto flex flex-col gap-4">
-                        <Image src={"/icon.png"} width={100} height={100} alt="Footer logo"  />
+                        <Image src={"/icon.png"} width={40} height={100} alt="Footer logo"  />
                         <p className="text-sm text-slate-400 font-semibold  max-w-64">Code12 é uma marca fantasia criada pelo Michel.</p>
                     </div>
                     <div className="flex-auto flex flex-col gap-1">

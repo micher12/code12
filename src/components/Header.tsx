@@ -84,7 +84,7 @@ export default function Header(){
                     ? " w-[150px] " 
                     : "w-[80%]!"}`}`}  
         >
-            <Image onClick={()=>{openMobileMenu()}} src={"/icon.png"} width={mobile ? 80 : 55} height={80} alt="Logo" priority={true}  className={`p-1 ${mobile && "cursor-pointer"}`} />
+            <Image onClick={()=>{openMobileMenu()}} src={"/icon.png"} width={38} height={80} alt="Logo" priority={true}  className={`p-1 ${mobile && "cursor-pointer"}`} />
             {!mobile && (
                 <div className="w-full flex items-center justify-end">
                     <div className="w-full flex items-center justify-center gap-5 font-bold text-slate-200/60">
