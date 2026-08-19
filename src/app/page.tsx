@@ -10,6 +10,7 @@ export default function Home() {
 
     return (
         <>
+            <div className="grain" aria-hidden="true" />
             <Header />
             <Hero />
             <Sobre />

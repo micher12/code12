@@ -35,8 +35,12 @@ export default function BackToTop(){
 
     if(ativado)
         return(
-            <div onClick={backTop} className={`fixed z-10 bottom-5 right-5 cursor-pointer p-0.5 bg-blue-500/60 rounded-full shadow-sm fadeInUp`}>
-                <ChevronUp />
-            </div>
+            <button
+                onClick={backTop}
+                aria-label="Voltar ao topo"
+                className={`fadeInUp fixed bottom-5 right-5 z-40 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-amber-400/30 bg-[#0d0d12]/80 text-amber-300 shadow-xl backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/60 hover:text-amber-200`}
+            >
+                <ChevronUp className="h-5 w-5" />
+            </button>
         )
 }

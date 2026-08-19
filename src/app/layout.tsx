@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat} from "next/font/google";
-import "@/styles/global.css"
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import "@/styles/global.css";
 import { UseProvider } from "@/lib/ContextProvider";
 
 const inter = Inter({
@@ -8,8 +8,13 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
+  subsets: ["latin"],
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -64,7 +69,7 @@ export default function RootLayout({
 
         </head>
         <body
-            className={`${inter.variable} ${montserrat.variable} antialiased`}
+            className={`${inter.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable} antialiased`}
         >
             <UseProvider>
                 {children}

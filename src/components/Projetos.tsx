@@ -83,11 +83,16 @@ const projetos = [
 export default function Projetos(){
 
     return(
-        <div id="projetos" className="min-h-screen relative py-36 bg-gradient-to-tl from-amber-500/20 via-cyan-500/20 to-purple-500/20">
-            <div className="container-xl">
-                <h2 className="text-3xl sm:text-5xl font-bold text-white">Projetos</h2>
+        <div id="projetos" className="relative overflow-hidden py-28">
+            <div className="pointer-events-none absolute right-0 top-0 h-[32rem] w-[32rem] rounded-full glow-amber blur-3xl opacity-25" />
 
-                <div className="flex flex-col mt-15 gap-20">
+            <div className="container-xl relative z-10">
+                <p className="eyebrow">02 · Trabalho</p>
+                <h2 className="display mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+                    Projetos <span className="text-teal-300">selecionados</span>
+                </h2>
+
+                <div className="mt-16 flex flex-col gap-24">
                     {projetos.map((item,index)=>(
                         <SingleItem key={index} item={item} index={index} />
                     ))}
